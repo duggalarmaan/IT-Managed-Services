@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Modify Ticket{% endblock %}
+{% block content %}
+<!-- Navbar Start -->
+<div class="container-fluid  sticky-top" style="background-color:  #d2d4d5; ">
+   <div class="container">
+       <nav class="navbar navbar-expand-lg  navbar-light p-lg-0 Text" style="background-color: #d2d4d5;">
+           <a href="index.html" class="navbar-brand d-lg-none">
+              <h1 class="fw-bold m-0">GCSolution</h1>
+           </a>
+           <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+              data-bs-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarCollapse"  >
+              <div class="navbar-nav">
+                <a href="{% url 'dashboard' %}" class="nav-item nav-link active">Home</a>                                              
+              </div>
+              <div class="mx-auto"> 
+                <h3 class="text-center">Admin View</h3>  
+              </div>
+              <div>
+                <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-3">Logout</a>
+              </div>
+           </div>
+       </nav>
+   </div>
+ </div>
+
+  <h2 class="my-4">Tickets</h2>
+
+  <form method="get" action="{% url 'admin_ticket' %}">
+    <select name="status_filter" class="form-select">
+      <option value="">All</option>
+      <option value="Open">Open</option>
+      <option value="In progress">In progress</option>
+      <option value="Completed">Completed</option>
+      <option value="Closed">Closed</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Filter</button>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Ticket Number</th>
+          <th>Title</th>
+          <!-- <th>Description</th> -->
+          <th>Created On</th>
+          <th>Closed On</th>  
+          <th>Status</th>
+          <th>Assigned To</th>
+          <th>Invoice</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ticket in tickets %}
+        <tr>
+          <td><a href="{% url 'ticket_update' ticket.pk %}">#{{ ticket.id }}</a></td>
+          <td><a href="{% url 'ticket_update' ticket.pk %}">{{ ticket.title }}</a></td>
+          <!-- <td>{{ ticket.description| truncatewords:5 }}</td> -->
+          <td>{{ ticket.created_at }}</td>  
+          <td>{{ ticket.closed_at }}</td>   
+          <td>
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+              <select name="new_status" class="form-select">
+                <option value="Open" {% if ticket.status == 'Open' %}selected{% endif %}>Open</option>
+                <option value="In progress" {% if ticket.status == 'In progress' %}selected{% endif %}>In progress</option>
+                <option value="Completed" {% if ticket.status == 'Completed' %}selected{% endif %}>Completed</option>
+                <option value="Closed" {% if ticket.status == 'Closed' %}selected{% endif %}>Closed</option>
+              </select>
+          </td>
+          <td>
+              <select name="new_assignee_id" class="form-select">
+                <option value="">Unassigned</option>
+                {% for user in users %}
+                <option value="{{ user.id }}" {% if ticket.assigned == user %}selected{% endif %}>{{ user.username }}</option>
+                {% endfor %}
+              </select>
+          </td>
+          <td>  
+                <input type="file" name="invoice">
+          </td>          
+          <td>
+              <button type="submit" class="btn btn-success">Save</button>
+              {% if ticket.rating %}
+                <div class="btn btn-primary rating-icon">
+                  {{ ticket.rating }} / 5
+                </div>
+              {% endif %}
+            </form>
+          </td>          
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

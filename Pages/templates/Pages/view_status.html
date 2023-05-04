@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}View Status{% endblock %}
+
+{% block content %}
+<!-- Navbar Start -->
+<div class="container-fluid  sticky-top" style="background-color:  #d2d4d5; ">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg  navbar-light p-lg-0 Text" style="background-color: #d2d4d5;">
+      <a href="index.html" class="navbar-brand d-lg-none">
+        <h1 class="fw-bold m-0">GCSolution</h1>
+      </a>
+      <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav">
+          <a href="{% url 'dashboard' %}" class="nav-item nav-link active">Home</a>
+        </div>
+        <div class="mx-auto">
+          <h3 class="text-center">View Tickets</h3>
+        </div>
+        <div>
+          <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-3">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+<!-- Navbar End -->
+<h2 class="my-4">Tickets</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Ticket Number</th>
+        <th>Title</th>
+        <th>Created On</th>
+        <th>Closed On</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+        <th>Invoice</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ticket in tickets %}
+      <tr>
+        <td><a href="{% url 'ticket_update' ticket.pk %}">#{{ ticket.id }}</a></td>
+        <td><a href="{% url 'ticket_update' ticket.pk %}">{{ ticket.title }}</a></td>
+        <td>{{ ticket.created_at }}</td>
+        <td>{{ ticket.closed_at}}</td>
+        <td>{{ ticket.assigned}}</td>
+        <td>{{ ticket.status}}</td>
+        <td>
+          {% if ticket.invoice %}
+          <a href="{{ ticket.invoice.url }}" class="btn btn-outline-dark" target="_blank">Download</a>
+          {% endif %}
+        </td>
+        </td>
+
+        <td style="width: 10rem;">
+          <!-- Ratings    -->
+          {% if ticket.rating %}
+          <div class="btn btn-primary rating-icon">
+            {{ ticket.rating }} / 5
+          </div>
+          {% else %}
+          <a href="{% url 'rate_technician' ticket.pk %}"
+            onclick="window.open(this.href, 'Rating', 'height=400,width=500'); return false;">
+            <div class="btn btn-primary rating-icon">
+              <i class="fas fa-star"></i>
+            </div>
+          </a>
+          {% endif %}
+
+          {% if ticket.status == 'Open' %}
+          <a href="{% url 'delete_ticket' ticket.pk %}"
+            onclick="window.open(this.href, 'Rating', 'height=150,width=700'); return false;">
+            <div type="button" class="btn btn-danger trash ">
+              <i class="far fa-trash-alt"></i>
+            </div>
+          </a>
+          {% endif %}
+        </td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

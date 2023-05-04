@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<!-- Navbar Start -->
+<div class="container-fluid  sticky-top" style="background-color:  #d2d4d5; ">
+   <div class="container">
+       <nav class="navbar navbar-expand-lg  navbar-light p-lg-0 Text" style="background-color: #d2d4d5;">
+           <a href="index.html" class="navbar-brand d-lg-none">
+               <h1 class="fw-bold m-0">GCSolution</h1>
+           </a>
+           <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+               data-bs-target="#navbarCollapse">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarCollapse"  >
+               <div class="navbar-nav">
+                  <a href="{% url 'dashboard' %}" class="nav-item nav-link active">Home</a>                                              
+               </div>
+               <div class="mx-auto"> 
+                  <h3 class="text-center">Welcome, {{ full_name }}</h3>  
+               </div>
+               <div>
+                  <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-3">Logout</a>
+               </div>
+           </div>
+       </nav>
+   </div>
+ </div>
+ <!-- Navbar End -->
+ <div class="container py-5" style="padding-top: 3rem !important; background-color: #a2b6cf;">
+   <div class="row g-12">
+      <div class="col-lg-4 col-md-4" style="text-align: center;">
+
+           <div class="btn-square  rounded-circle mx-auto mb-4" style="width: 64px; height: 64px;">
+               <img class="img-fluid" src="../../../static/images/Speed.jpg" alt="Icon">
+               <p class="mb-2"> Speed</p>               
+           </div>
+
+           <p class="mb-2">Download Speed: {{ download_speed }} Mbps</p>
+           <p class="mb-2">Upload Speed: {{ upload_speed }} Mbps</p>
+
+           <a href="{% url 'speed_test' %}" class="btn btn-dark">Run Speed Test</a>                                
+          
+      </div>    
+
+      <div class="col-lg-4 col-md-4" style="text-align: center;">
+         <div class="btn-square  rounded-circle mx-auto mb-4"
+            style="width: 64px; height: 64px;">
+            <img class="img-fluid" src="../../../static/images/TeamViewer.png" alt="Icon">
+            <p class="mb-2"> TeamViewer</p>          
+         </div>
+                    
+         <a href="https://ninite.com/teamviewer15/ninite.exe"class="btn"><i class="fa fa-download"></i>Download TeamViewer</a>
+         
+      </div>
+
+      <div class="col-lg-4 col-md-4" style="text-align: center;">
+         <div class="btn-square  rounded-circle mx-auto mb-4"
+            style="width: 64px; height: 64px;">
+            <img class="img-fluid" src="../../../static/images/new_pc_tools.png" alt="Icon">
+            <p class="mb-2">New PC Tools</p>
+         </div>           
+           
+         <a href="https://ninite.com/7zip-chrome-vlc-zoom/ninite.exe" class="btn"><i class="fa fa-download"></i>Download Tools</a>
+
+      </div>
+       
+   </div>
+</div>
+{% if user.get_user_type == 'client' %} 
+
+<div class="container py-5" style="padding-top: 5rem !important; ">
+    
+   <div class="row g-12" style="text-align: center;" >
+                   
+      <div class="col-lg-6 col-md-6">
+
+         <button class="btn btn-primary create-ticket-btn"> <a href="{% url 'create_ticket' %}" style="color: black;"> <i class="btn-square bg-light rounded-circle mx-auto mb-4"
+            style="width: 64px; height: 64px;">
+            <img class="img-fluid" src="../../../static/images/CreateTicket.png" alt="Icon">
+         </i>  Create Ticket </button> </a>
+
+      </div>
+     
+      <div class="col-lg-6 col-md-6">         
+          
+         <button class="btn btn-primary update-ticket-btn"> 
+         <a href="{% url 'client_status' %}" style="color: black;"> <i class="btn-square bg-light rounded-circle mx-auto mb-4"
+         style="width: 64px; height: 64px;"> <img class="img-fluid" src="../../../static/images/Modify.png" alt="Icon"> </i>Modify/View Ticket
+         </button> </a>
+
+      </div>      
+  
+      <!-- <div class="col-lg-4 col-md-4">
+        
+         <button class="btn btn-danger update-ticket-btn">  <a href="contact.html" style="color: black;"> <i class="btn-square bg-light rounded-circle mx-auto mb-4"
+            style="width: 64px; height: 64px;">
+            <img class="img-fluid" src="../../../static/images/Delete.png" alt="Icon">
+            </i>Delete Ticket 
+         </button></a> 
+      </div> -->
+
+   </div>
+
+</div>
+
+{% elif user.get_user_type == 'technician' %}
+<div>     
+
+   <div class="container py-5" style="padding-top: 5rem !important; ">
+    
+      <div class="row g-12" style="text-align: center;" >
+                                     
+         <div class="col-lg-12 col-md-12">         
+             
+            <button class="btn btn-primary update-ticket-btn"> 
+            <a href="{% url 'tech_ticket' %}" style="color: black;"> <i class="btn-square bg-light rounded-circle mx-auto mb-4"
+            style="width: 64px; height: 64px;"> <img class="img-fluid" src="../../../static/images/Modify.png" alt="Icon"> </i>Modify/View Ticket
+            </button> </a>
+   
+         </div>      
+     
+         <!-- <div class="col-lg-6 col-md-6">
+           
+            <button class="btn btn-danger update-ticket-btn">  <a href="contact.html" style="color: black;"> <i class="btn-square bg-light rounded-circle mx-auto mb-4"
+               style="width: 64px; height: 64px;">
+               <img class="img-fluid" src="../../../static/images/Delete.png" alt="Icon">
+               </i>Delete Ticket 
+            </button></a> 
+         </div> -->
+   
+      </div>
+   
+   </div>  
+    
+</div>
+{% elif user.get_user_type == 'admin' %}
+<div>     
+
+   <div class="container py-5" style="padding-top: 5rem !important; ">
+    
+      <div class="row g-12" style="text-align: center;" >                     
+                
+         <div class="col-lg-12 col-md-12">         
+             
+            <button class="btn btn-primary update-ticket-btn"> 
+            <a href="{% url 'admin_ticket' %}" style="color: black;"> <i class="btn-square bg-light rounded-circle mx-auto mb-4"
+            style="width: 64px; height: 64px;"> <img class="img-fluid" src="../../../static/images/Modify.png" alt="Icon"> </i>Modify/Assign Ticket
+            </button> </a>
+   
+         </div>      
+     
+         <!-- <div class="col-lg-6 col-md-6">           
+            <button class="btn btn-danger update-ticket-btn">  <a href="contact.html" style="color: black;"> <i class="btn-square bg-light rounded-circle mx-auto mb-4"
+               style="width: 64px; height: 64px;">
+               <img class="img-fluid" src="../../../static/images/Delete.png" alt="Icon">
+               </i>Delete Ticket 
+            </button></a> 
+         </div> -->
+   
+      </div>
+   
+   </div>  
+    
+</div>
+
+{% endif %}
+{% endblock %}

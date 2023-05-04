@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+ <!-- Navbar Start -->
+<div class="container-fluid  sticky-top" style="background-color:  #d2d4d5; ">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg  navbar-light p-lg-0 Text" style="background-color: #d2d4d5;">
+            <a href="index.html" class="navbar-brand d-lg-none">
+                <h1 class="fw-bold m-0">GCSolution</h1>
+            </a>
+            <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse"  >
+                <div class="navbar-nav" style="text-align: center; ">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link active">About</a>
+                    <a href="{% url 'services' %}" class="nav-item nav-link">Services</a>                
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>             
+                </div>
+                <div class="ms-auto d-none d-lg-block">
+                    <a href="{% url 'login' %}" class="btn btn-primary rounded-pill py-2 px-3">Login</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+  </div>
+  <!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container text-center py-5">
+        <h1 class="display-2 text-white mb-4 animated slideInDown">About Us</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb justify-content-center mb-0">              
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+      <!-- About Start -->
+  <div class="container about">
+    <div class="row">
+      <div class="col-md-5" style="padding-right: 1%; ">
+        <img src="../../../static/images/aniket.jpg" alt="Your Image" class="img-fluid">
+      </div>
+      <div class="col-md-7">
+       
+          <p class="lead">GCSolution is a leading IT Managed Services Provider based in Edmonton, AB. We specialize in delivering customized IT Solutions to small and medium-sized businesses, enabling them to streamline their operations, reduce costs, and to expand their digital presence.</p>
+          <p>Our Mission is to provide the highest level of IT services to our clients, enabling them to achieve their business goals through technology.</p>
+          <p>Our Vision is to become the most trusted and reliable IT partner for small and medium-sized businesses.</p>
+          <p>Our Values are:</p>
+          <ul>
+            <li>Integrity: We are committed to honesty, transparency, and ethical business practices.</li>
+            <li>Excellence: We strive to deliver exceptional service and support to our clients.</li>
+            <li>Innovation: We are dedicated to staying at the forefront of the latest technologies and trends.</li>
+            <li>Collaboration: We work closely with our clients to understand their unique needs and provide tailored solutions.</li>
+            <li>Simplicity: We are more effective and efficient when we keep things simple.</li>
+            <li>Honesty: We are building trust and respect by being truthful in all aspects of our lives.</li>
+            <li>Listen: We are fostering empathy and understanding by giving our full attention and truly hearing others.</li>
+            <li>Care: We are making the world a better place by showing compassion and kindness towards ourselves, others, and our environment.</li>
+            <li>Celebrate: We are embracing joy and gratitude by recognizing and commemorating the achievements and milestones in our lives.</li>
+          </ul>
+          <p>At GCSolution, we pride ourselves on our ability to understand our clients' unique needs and provide tailored solutions that help them achieve their business goals. Our founder and CEO, Aniket Singh, has over 3 years of experience in the IT industry and is committed to ensuring that GCSolution remains at the forefront of the industry.</p>
+        </div>
+      </div>
+    </div>
+ 
+<!-- About End -->
+
+           <!-- Team Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                    <p class="fs-5 fw-medium text-primary">Our Team</p>
+                    <h1 class="display-5 mb-5">Our Expert People Ready to Help You</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item rounded overflow-hidden pb-4">
+                            <img class="img-fluid mb-4" src="img/team-1.jpg" alt="">
+                            <h5>Aniket</h5>
+                            <span class="text-primary">Founder & CEO</span>
+                            <ul class="team-social">
+                                <li><a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item rounded overflow-hidden pb-4">
+                            <img class="img-fluid mb-4" src="img/team-2.jpg" alt="">
+                            <h5>Mark</h5>
+                            <span class="text-primary">Operations Manager</span>
+                            <ul class="team-social">
+                                <li><a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item rounded overflow-hidden pb-4">
+                            <img class="img-fluid mb-4" src="img/team-3.jpg" alt="">
+                            <h5>Vinay</h5>
+                            <span class="text-primary">Store Manager</span>
+                            <ul class="team-social">
+                                <li><a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="team-item rounded overflow-hidden pb-4">
+                            <img class="img-fluid mb-4" src="img/team-4.jpg" alt="">
+                            <h5>Mike</h5>
+                            <span class="text-primary">Digital Marketer</span>
+                            <ul class="team-social">
+                                <li><a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a></li>
+                                <li><a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+{% endblock %}

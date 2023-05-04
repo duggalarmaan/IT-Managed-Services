@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+<!-- Navbar Start -->
+<div class="container-fluid  sticky-top" style="background-color:  #d2d4d5; ">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg  navbar-light p-lg-0 Text" style="background-color: #d2d4d5;">
+            <a href="index.html" class="navbar-brand d-lg-none">
+                <h1 class="fw-bold m-0">GCSolution</h1>
+            </a>
+            <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse"  >
+                <div class="navbar-nav" style="text-align: center; ">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                    <a href="{% url 'services' %}" class="nav-item nav-link active">Services</a>                
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>             
+                </div>
+                <div class="ms-auto d-none d-lg-block">
+                    <a href="{% url 'login' %}" class="btn btn-primary rounded-pill py-2 px-3">Login</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container text-center py-5">
+        <h1 class="display-2 text-white mb-4 animated slideInDown">Services</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb justify-content-center mb-0">
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+ <!-- Service Start -->
+ <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <p class="fs-5 fw-medium text-primary">Our Services</p>
+            <h1 class="display-5 mb-5">It Managed Services that We Offer</h1>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item position-relative h-100">
+                <div class="service-text rounded p-5">
+                    <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                         style="width: 64px; height: 64px;">
+                        <img class="img-fluid" src="../../../static/images/Network Management and Security.jpg" alt="Icon">
+                    </div>
+                    <h5 class="mb-3">
+                      Network Management and Security</h4>
+                        <p class="mb-0">
+                          We ensure that your network is secure and free from any potential threats or vulnerabilities.
+                            </p>
+                </div>
+             
+            </div>
+        </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                        <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/CloudBackup.png" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                            Cloud Backup</h4>
+                            <p class="mb-0">
+                              Our cloud services provide secure and reliable access to your data and applications from anywhere, anytime.
+                                </p>
+                    </div>
+               
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                        <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/DatabaseRecoveryData.png" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                          Data Backup and Recovery</h4>
+                            <p class="mb-0">
+                              We offer comprehensive backup and recovery solutions to protect your critical business data.
+                                </p>
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                        <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/HelpDesk.png" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                          Help Desk Support</h4>
+                            <p class="mb-0">
+                              
+                              Our help desk support services provide quick and efficient resolution to any technical issues you may encounter.
+                                </p>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                        <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/ITConsulting.jpg" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                          IT Consulting</h4>
+                            <p class="mb-0">
+                              Our experienced consultants can provide strategic guidance and recommendations to help you optimize your IT infrastructure and maximize your ROI.
+                                </p>
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                      <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/CyperSecurity.png" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                            Cyber Security</h4>
+                            <p class="mb-0">
+                             We ensure to Protect your digital assets with our comprehensive cybersecurity services
+                                </p>
+                    </div>
+                  
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                        <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/Project Management.png" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                            Project Management</h4>
+                            <p class="mb-0">
+                              
+                                Planning, execution, and management of IT projects to minimize risks and disruptions to your business operations
+                                </p>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                        <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/Internet.png" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                            Internet of Things (IoT) Management</h4>
+                            <p class="mb-0">
+                                Management and integration of connected devices, sensors, and data to streamline operations
+                                </p>
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                      <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/SoftwareDev.png" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                            Software Development and Customization</h4>
+                            <p class="mb-0">
+                                Tailoring of applications to your specific business needs for increased efficiency and reduced costs.
+                                </p>
+                    </div>
+                  
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                        <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/Virtualization.jpg" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                            Virtualization Services</h4>
+                            <p class="mb-0">
+                              
+                                Optimization of your IT infrastructure by virtualizing servers, storage, and desktops for cost savings and increased efficiency.
+                                </p>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                        <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/Unified.jpg" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                            Unified Communications</h4>
+                            <p class="mb-0">
+                                Consolidation of your communication channels into a single, integrated platform for improved collaboration and productivity
+                                </p>
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item position-relative h-100">
+                    <div class="service-text rounded p-5">
+                      <div class="btn-square bg-light rounded-circle mx-auto mb-4"
+                             style="width: 64px; height: 64px;">
+                            <img class="img-fluid" src="../../../static/images/ManagedPrint.png" alt="Icon">
+                        </div>
+                        <h5 class="mb-3">
+                            Managed Print Services</h4>
+                            <p class="mb-0">
+                                Efficient management and maintenance of your organization's printing infrastructure to optimize your printing needs and reduce costs.
+                                </p>
+                    </div>
+                  
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+{% endblock %}

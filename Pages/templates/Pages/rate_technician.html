@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../../../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <form method="post" id="rateForm">
+        {% csrf_token %}        
+
+        <div class="">
+            <div class="container">
+
+                <div class="row g-5">
+                    <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+
+                        <!-- Description input -->
+                        <div class="form-outline mb-4">
+                            <h4>Please enter a rating with 1 being the worst and 5 being best:</h4>
+                            
+                            <label class="form-label" for="rating">Rating:</label>
+                            <input type="number" id="rating" name="rating" min="1" max="5" required>
+                            <br>
+                            <label class="form-label" for="rating_description">Rating Description:</label>
+                            <textarea id="rating_description" name="rating_description" class="form-control" rows="4"
+                                placeholder="Description"></textarea>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Submit</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</body>
+
+</html>
